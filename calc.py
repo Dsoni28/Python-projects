@@ -3,20 +3,20 @@ from tkinter import *
 root = Tk()
 root.title("Calculator")
 
-e= Entry(root,width= 35, borderwidth=5)
-e.grid(row=0,column=0, columnspan=3, padx=10, pady=10)
+frame= Entry(root,width= 40, borderwidth=10)
+frame.grid(row=0,column=0, columnspan=3, padx=10, pady=10)
 
 def button_click(num):
-	currrent_num= e.get()
-	e.delete(0,END)
-	e.insert(0,str(currrent_num)+str(num))
+	currrent_num= frame.get()
+	frame.delete(0,END)
+	frame.insert(0,str(currrent_num)+str(num))
 
 def button_clear():
-	e.delete(0,END)
+	frame.delete(0,END)
 
 def button_add():
-	first_number=e.get()
-	e.delete(0,END)
+	first_number=frame.get()
+	frame.delete(0,END)
 	global f_num
 	global math
 	math ="add"
@@ -24,41 +24,41 @@ def button_add():
 	 
 
 def button_equal():
-	second_number=e.get()
-	e.delete(0,END)
+	second_number=frame.get()
+	frame.delete(0,END)
 	if math == "add":
 		answer = f_num+ int(second_number)
-		e.insert(0, answer)
+		frame.insert(0, answer)
 	if math == "subt":
 		answer = f_num - int(second_number)
-		e.insert(0, answer)
+		frame.insert(0, answer)
 	if math == "mult":
 		answer = f_num * int(second_number)
-		e.insert(0, answer)
+		frame.insert(0, answer)
 	if math == "div":
 		answer = f_num / int(second_number)
-		e.insert(0, answer)
+		frame.insert(0, answer)
 
 
 def button_subt():
-	first_number=e.get()
-	e.delete(0,END)
+	first_number=frame.get()
+	frame.delete(0,END)
 	global f_num
 	global math
 	math ="subt"
 	f_num= int(first_number)
 
 def button_mult():
-	first_number=e.get()
-	e.delete(0,END)
+	first_number=frame.get()
+	frame.delete(0,END)
 	global f_num
 	global math
 	math ="mult"
 	f_num= int(first_number)
 
 def button_div():
-	first_number=e.get()
-	e.delete(0,END)
+	first_number=frame.get()
+	frame.delete(0,END)
 	global f_num
 	global math
 	math ="div"
@@ -103,4 +103,5 @@ buttonmult.grid(row=6 , column =1 )
 buttondiv.grid(row=6, column =2 )
 
 
+root.mainloop()
 root.mainloop()
